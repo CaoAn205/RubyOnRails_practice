@@ -1,0 +1,5 @@
+<%= form_tag user_room_room_messages_path(user, room), method: :post, remote: true, class: "md-form mt-3 text-right" do %>
+  <%= text_field_tag :new_message, params[:new_message], placeholder: "Write something.. ", autocomplete: "off",
+                     class: "form-control btn-sm border-0 text-right"%>
+<% end %>
+

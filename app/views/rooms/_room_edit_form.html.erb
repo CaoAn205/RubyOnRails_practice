@@ -1,0 +1,4 @@
+<%= form_with url:user_room_path(user.id, room.id), method: :patch,
+    remote: true, :class => "row" do |form| %>
+  <%= form.text_field :name, placeholder: room.name, class: "form-control comment-input border-0 col-8" %>
+<% end %>

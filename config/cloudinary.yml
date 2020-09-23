@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dhp0hmord
+  api_key: '145178589457631'
+  api_secret: GwD_dMLiyHdVLZVnDu8-xvZAK-c
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dhp0hmord
+  api_key: '145178589457631'
+  api_secret: GwD_dMLiyHdVLZVnDu8-xvZAK-c
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dhp0hmord
+  api_key: '145178589457631'
+  api_secret: GwD_dMLiyHdVLZVnDu8-xvZAK-c
+  enhance_image_tag: true
+  static_file_support: false

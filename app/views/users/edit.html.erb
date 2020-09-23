@@ -1,0 +1,15 @@
+<div class="conatiner p-1 m-4 w-75 align-self-lg-center">
+    <div class="row mx-lg-5 flex-column align-items-center">
+        <%= form_for @user, url: user_path(@user), method: :patch, class: "md-form mt-5" do |f| %>
+          <div class="col col-6">
+            <%= image_tag user_avatar(@user), width: '125', height: '125', class: "round-img" %>
+            <%= f.text_field :avatar, type: :file, class:"m-3" %>
+          </div>
+          <div class="col col-6">
+            <%= f.text_field :name, autocomplete: @user.name, class:"form-control border-0 text-left m-3" %>
+            <%= f.text_field :email, autocomplete: @user.email, class:"form-control border-0 text-left m-3" %>
+            <%= f.submit "Update", class:"btn btn-sm m-3 btn-outline-dark" %>
+          </div>
+        <% end %>
+    </div>
+</div>

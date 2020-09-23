@@ -1,0 +1,27 @@
+<div class="room container m-4 p-3 border border-darker rounded ">
+  <div class="row justify-content-md-center ml-1  border-bottom border-darker">
+    <div class="create-room col-2 text-lg-start ">
+      <div class="row create-conversation p-2">
+        <%= form_tag user_rooms_path(@user.id), method: :post, remote: true do %>
+          <%= hidden_field :user_id, value: @user.id %>
+          <%= text_field_tag :name, params[:name], class: "form-inline border-0", placeholder: "Start a conversation" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col text-lg-center p-2 ">
+      Direct
+    </div>
+  </div>
+  <div class="row justify-content-md-start align-self-lg-center ml-1">
+    <div class="all-rooms col-4 text-lg-start border-right border-darker">
+      <%= render "rooms_list", {user: @user}%>
+    </div>
+    <div class="room-messages-box col-8 text-lg-center">
+<!--      Choose user to message-->
+      <div class="text-messages-box overflow-auto">
+      </div>
+      <div class="create-message-box">
+      </div>
+    </div>
+  </div>
+</div>

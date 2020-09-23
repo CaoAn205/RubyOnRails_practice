@@ -1,0 +1,4 @@
+$(`#comment-post-<%= @post.id %>`).
+  html('<%= j render "posts/comment_list", {post: @post} %>');
+$(`#comment-form-post-<%= @post.id %> #comment_content`).val("") //This selector only returns the first elements while we need the "choosen" one
+console.log("comment created");

@@ -1,0 +1,3 @@
+$(`#follow-user-<%= @user.id %>`).html('<%= link_to "Followed", follow_path(@follow), method: :delete, remote: true,
+ class: "btn common-btn followed-user-btn" %>');
+console.log('user is followed');

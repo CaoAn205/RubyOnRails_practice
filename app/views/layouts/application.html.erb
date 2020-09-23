@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
+  </head>
+
+  <body>
+    <%= render 'shared/navbar' if current_user %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, msg| %>
+          <% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+          toastr.<%= type %>("<%= msg %>")
+        <% end %>
+      </script>
+    <% end %>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

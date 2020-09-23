@@ -1,0 +1,2 @@
+$(`#room-<%= @room.id %>`).html('<%= j render "room_edit_form", {user: @user, room: @room} %>');
+$(`#room-<%= @room.id %>-edit-btn`).html('<%= link_to "Save", user_rooms_path(@user) %>');

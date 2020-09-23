@@ -1,0 +1,14 @@
+<% @rooms.each do |room| %>
+  <div class="row p-2 border-bottom border-darker">
+    <div id="room-<%= room.id %>">
+      <%= link_to room.name, user_room_path(@user.id, room.id), method: :get, class: "btn border-0", remote: true %>
+    </div>
+    <div class="my-md-auto ml-auto" id="room-<%= room.id %>-edit-btn">
+      <a class="core-sprite more-options hide-text ml-auto" data-toggle="collapse" href="#collapseExample<%= room.id %>" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+      <div class="collapse" id="collapseExample<%= room.id %>">
+        <%= link_to "Edit", edit_user_room_path(user.id, room.id), method: :get, remote: true, class: "btn common-btn border-darker"%>
+        <%= link_to "Delete", user_room_path(user.id, room.id), method: :delete, remote: true, class: "btn common-btn border-darker"%>
+      </div>
+    </div>
+  </div>
+<% end %>

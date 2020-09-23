@@ -1,0 +1,6 @@
+<%= form_for [post,Comment.create], url: post_comments_path(post.id), method: :post ,remote: true ,html: {class: "w-100"} do |f| %>
+   <%= f.hidden_field :user_id, value: current_user.id %>
+   <%= f.hidden_field :post_id, value: post.id %>
+   <%= f.text_field :content, class: "form-control comment-input border-0", placeholder: "Add a comment...",
+   autocomplete: :off %>
+<% end %>
