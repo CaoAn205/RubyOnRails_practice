@@ -3,7 +3,7 @@
         <%= form_for @user, url: user_path(@user), method: :patch, class: "md-form mt-5" do |f| %>
           <div class="col col-6">
             <%= image_tag user_avatar(@user), width: '125', height: '125', class: "round-img" %>
-            <%= f.text_field :avatar, type: :file, class:"m-3" %>
+            <%= f.file_field :avatar, class:"m-3" %>
           </div>
           <div class="col col-6">
             <%= f.text_field :name, autocomplete: @user.name, class:"form-control border-0 text-left m-3" %>

@@ -1,3 +1,5 @@
+require 'tempfile'
+require 'csv'
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -48,6 +50,24 @@ class RoomsController < ApplicationController
       flash[:alert] = "Conversation does not existed"
     end
     redirect_to user_rooms_path
+  end
+
+  def download
+    @messages = RoomMessage.all
+    test_file = Tempfile.new("TestFile.csv")
+    header = ["Users", "Messages"]
+    CSV.open(test_file, "wb", headers: header ) do |writer|
+      @messages.each do |element|
+        writer << [element.messages, element.user.name]
+      end
+    end
+    test_file.rewind
+    File.open(test_file.path, "r") do |f|
+      send_data(f.read, filename: "TestFile.csv")
+    end
+    File.delete(test_file.path)
+    test_file.close
+    test_file.unlink
   end
 
   private

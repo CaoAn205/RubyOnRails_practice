@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :followeds, only: [:index ,:create, :destroy], shallow: true
     resources :rooms do
       resources :room_messages, only: [:index, :create, :destroy], shallow: true
+      collection do
+        get "download", as: "download"
+      end
     end
   end
 

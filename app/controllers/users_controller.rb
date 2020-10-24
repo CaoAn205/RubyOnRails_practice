@@ -22,12 +22,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:name, :email, :avatar))
+    if @user.update(name: params[:user][:name], email: params[:user][:email], avatar: params[:user][:avatar])
       flash[:notice] = "Success"
     else
       flash[:alert] = "Failed"
     end
-    redirect_to user_pa th(@user)
+    redirect_to user_path(@user)
   end
 
   def destroy

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :posts, -> {order(:created_at => :desc)} , dependent: :destroy
   has_many :likes, -> {order(:created_at => :desc)}, dependent: :destroy
   has_many :comments, -> {order(:created_at => :desc)}, dependent: :destroy
